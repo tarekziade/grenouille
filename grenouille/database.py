@@ -4,7 +4,7 @@ from pyelasticsearch import ElasticSearch
 
 class WeatherDatabase(object):
 
-    def __init__(self, server='http://0.0.0.0:9200'):
+    def __init__(self, server='http://0.0.0.0:9901'):
         self.server = server
         self.es = ElasticSearch(server)
 

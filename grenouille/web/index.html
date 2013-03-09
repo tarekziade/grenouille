@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Monolith Dashboard</title>
+    <link type="text/css"rel="stylesheet" href="css/jquery-ui.css" />
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.css" />
+    <link type="text/css" rel="stylesheet" href="css/bootstrap-responsive.css" />
+    <link type="text/css" rel="stylesheet" href="css/datepicker.css" />
+    <link type="text/css" rel="stylesheet" href="css/graph.css">
+    <link type="text/css" rel="stylesheet" href="css/detail.css">
+    <link type="text/css" rel="stylesheet" href="css/legend.css">
+    <link type="text/css" rel="stylesheet" href="css/lines.css">
+    <link type="text/css" rel="stylesheet" href="css/monolith.css" />
+
+    <script type="text/javascript" src="lib/jquery.min.js"></script>
+    <script type="text/javascript" src="lib/jquery-ui.js"></script>
+    <script type="text/javascript" src="lib/jquery.class.js"></script>
+    <script type="text/javascript" src="lib/angular.min.js"></script>
+    <script type="text/javascript" src="lib/d3.v2.js"></script>
+    <script type="text/javascript" src="lib/rickshaw.js"></script>
+    <script type="text/javascript" src="lib/bootstrap.js"></script>
+    <script type="text/javascript" src="lib/bootstrap-datepicker.js"></script>
+    <script type="text/javascript" src="lib/monolith.js"></script>
+
+
+
+  </head>
+  <body>
+      <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container branding">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+           <span class="icon-bar"></span>
+           <span class="icon-bar"></span>
+           <span class="icon-bar"></span>
+          </a>
+          <a class="brand">Grenouille</a>
+
+       </div>
+    </div>
+   </div> <!-- end navbar-->
+
+   <br/><br/><br/>  <!-- needs a bit of css instead -->
+
+
+    <div class="container-fluid">
+   <div class="row-fluid">
+     <div class="span12">
+
+       <div class="chart span4">
+         <h2 class="chart">Temperature (ºC)</h2>
+         <div class="y_axis" id="y_axis-temp"></div>
+         <div id="chart-temp" style="height:200px; margin: 0 auto"></div>
+         <input type="hidden" id="startdate-temp" value="03/08/2013"/>
+         <input type="hidden" id="enddate-temp" value="03/11/2013"/>
+       </div> <!-- end chart -->
+
+       <div class="chart span4">
+         <h2 class="chart">Humidity (%)</h2>
+         <div class="y_axis" id="y_axis-hum"></div>
+         <div id="chart-hum" style="height:200px; margin: 0 auto"></div>
+         <input type="hidden" id="startdate-hum" value="03/08/2013"/>
+         <input type="hidden" id="enddate-hum" value="03/11/2013"/>
+       </div> <!-- end chart -->
+
+       <div class="chart span4">
+         <h2 class="chart">Pressure (mb)</h2>
+         <div class="y_axis" id="y_axis-press"></div>
+         <div id="chart-press" style="height:200px; margin: 0 auto"></div>
+         <input type="hidden" id="startdate-press" value="03/08/2013"/>
+         <input type="hidden" id="enddate-press" value="03/11/2013"/>
+       </div> <!-- end chart -->
+
+
+
+     </div>   <!-- end span12 -->
+    </div>   <!-- end row-fluid -->
+  </div> <!-- end container-fluid -->
+
+
+    <script type="text/javascript" src="app.js"></script>
+  </body>
+</html>
+
