@@ -1,7 +1,7 @@
 /*
-   monolith.js
+   grenouille.js
 
-   Provides a MonolithSeries & MonolithAggregate class that will draw
+   Provides a GrenouilleSeries & GrenouilleAggregate class that will draw
    a Rickshaw chart y querying Elastic Search
 
    common options:
@@ -12,11 +12,11 @@
    - container: the name of the chart container
    - title: title of the series
 
-   MonolithSeries options:
+   GrenouilleSeries options:
 
    - fields: comma-separeted list
 
-   MonolithAggregate options:
+   GrenouilleAggregate options:
 
    - field: field to aggregate on
    - aggregation interval (any of: day, week, month, year)
@@ -67,7 +67,7 @@ function getTerms(server, field) {
 
 
 
-$.Class.extend("MonolithBase", {},
+$.Class.extend("GrenouilleBase", {},
     {
       init: function(id, server, start_date, end_date, container, title) {
         this.type = 'bar';
@@ -164,8 +164,8 @@ _init_datepicker: function(selector) {
 }
 );
 
-// Monolith series - plain series, up to 2
-MonolithBase.extend("MonolithSeries",
+// Grenouille series - plain series, up to 2
+GrenouilleBase.extend("GrenouilleSeries",
     {},
     {
       init: function(id, server, start_date, end_date, container, title, fields) {
@@ -245,8 +245,8 @@ MonolithBase.extend("MonolithSeries",
 )
 
 
-// Monolith series - facet search
-MonolithBase.extend("MonolithAggregate",
+// Grenouille series - facet search
+GrenouilleBase.extend("GrenouilleAggregate",
     {},
     {
       init: function(id, server, start_date, end_date, container, title, field, interval) {

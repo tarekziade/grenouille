@@ -1,6 +1,6 @@
 
 
-var temp = new MonolithAggregate("temp",
+var temp = new GrenouilleAggregate("temp",
                         "http://0.0.0.0:9901/weather/_search",
                         "#startdate-temp",
                         "#enddate-temp",
@@ -11,7 +11,7 @@ var temp = new MonolithAggregate("temp",
 
 temp.draw();
 
-var hum = new MonolithAggregate("hum",
+var hum = new GrenouilleAggregate("hum",
                         "http://0.0.0.0:9901/weather/_search",
                         "#startdate-hum",
                         "#enddate-hum",
@@ -22,7 +22,7 @@ var hum = new MonolithAggregate("hum",
 
 hum.draw();
 
-var press = new MonolithAggregate("press",
+var press = new GrenouilleAggregate("press",
                         "http://0.0.0.0:9901/weather/_search",
                         "#startdate-press",
                         "#enddate-press",

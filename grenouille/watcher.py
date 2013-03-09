@@ -30,4 +30,4 @@ def watch_station(delay=3600, verbose=True, loop=False):
 
 
 if __name__ == '__main__':
-    watch_station(5)
+    watch_station(loop=True, delay=3600./4.)
