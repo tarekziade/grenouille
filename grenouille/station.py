@@ -5,6 +5,13 @@ from yocto.humidity import YHumidity
 from yocto.temperature import YTemperature
 from yocto.pressure import YPressure
 
+TURCEY = 374.
+
+
+def convert_pressure(value, altitude=TURCEY):
+    # XXX we should find out the altitude, given the box IP
+    return value + value / 8.3 * 100. / 100.
+
 
 class Station(object):
 
@@ -35,6 +42,7 @@ class Station(object):
         if isinstance(sensor, YHumidity):
             return name, value, u'%4.0f%%' % value
         elif isinstance(sensor, YPressure):
+            value = convert_pressure(value)
             return name, value, u'%4.0fmb' % value
         else:
             return name, value, u'%2.1fºC' % value
