@@ -147,7 +147,7 @@ _init_datepicker: function(selector) {
           var hour = '<span class="hour">' + cdate.toUTCString() + '</span>';
           var swatch = '<span class="detail_swatch" style="background-color: '
                        + series.color + '"></span>';
-          var content = swatch + parseInt(y) + '<br>' + hour;
+          var content = swatch + y + '<br>' + hour;
           return content;
         }
     } );
