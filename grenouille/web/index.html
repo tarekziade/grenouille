@@ -52,29 +52,56 @@
          <h2 class="chart">Temperature (ºC)</h2>
          <div class="y_axis" id="y_axis-temp"></div>
          <div id="chart-temp" style="height:200px; margin: 0 auto"></div>
-         <input type="hidden" id="startdate-temp" value="03/08/2013"/>
-         <input type="hidden" id="enddate-temp" value="03/11/2013"/>
        </div> <!-- end chart -->
 
        <div class="chart span4">
          <h2 class="chart">Humidity (%)</h2>
          <div class="y_axis" id="y_axis-hum"></div>
          <div id="chart-hum" style="height:200px; margin: 0 auto"></div>
-         <input type="hidden" id="startdate-hum" value="03/08/2013"/>
-         <input type="hidden" id="enddate-hum" value="03/11/2013"/>
        </div> <!-- end chart -->
 
        <div class="chart span4">
          <h2 class="chart">Pressure (mb)</h2>
          <div class="y_axis" id="y_axis-press"></div>
          <div id="chart-press" style="height:200px; margin: 0 auto"></div>
-         <input type="hidden" id="startdate-press" value="03/08/2013"/>
-         <input type="hidden" id="enddate-press" value="03/11/2013"/>
        </div> <!-- end chart -->
 
-
-
      </div>   <!-- end span12 -->
+
+     <!-- Button to trigger modal -->
+     <a href="#myModal" role="button" class="btn btn-primary" data-toggle="modal">
+       Modifier
+       </a>
+
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog"
+  aria-labelledby="myModalLabel" aria-hidden="true">
+
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"
+            aria-hidden="true">&times;</button>
+          <h3>Changer les dates affichées</h3>
+        </div>
+         <div class="modal-body">
+         <form class="form-horizontal">
+           <fieldset>
+             <div class="control-group">
+               <label for="startdate">Date de début</label>
+               <input type="text" id="startdate" value="03/08/2013"/>
+             </div>  
+             <div class="control-group">
+               <label for="startdate">Date de fin</label>
+               <input type="text" id="enddate" value="03/11/2013"/>
+             </div>
+           </fieldset>
+         </form>
+
+         </div>
+         <div class="modal-footer">
+           <a href="#" class="btn" data-dismiss="modal">Fermer</a>
+           <a href="#" onclick="refreshChart()" data-dismiss="modal" class="btn btn-primary">Appliquer</a>
+         </div>
+       </div>
+
     </div>   <!-- end row-fluid -->
   </div> <!-- end container-fluid -->
 
