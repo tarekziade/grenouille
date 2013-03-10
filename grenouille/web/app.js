@@ -9,7 +9,6 @@ var temp = new GrenouilleAggregate("temp",
                         "temperature",
                         "hour");
 
-temp.draw();
 
 var hum = new GrenouilleAggregate("hum",
                         "http://0.0.0.0:9901/weather/_search",
@@ -20,7 +19,6 @@ var hum = new GrenouilleAggregate("hum",
                         "humidity",
                         "hour");
 
-hum.draw();
 
 var press = new GrenouilleAggregate("press",
                         "http://0.0.0.0:9901/weather/_search",
@@ -31,18 +29,33 @@ var press = new GrenouilleAggregate("press",
                         "pressure",
                         "hour");
 
-press.draw();
 
-$('#startdate').datepicker();
-$('#startdate').datepicker().on('changeDate',
-      function(ev) {$('#startdate').datepicker('hide')});
+function setDates() {
 
-$('#enddate').datepicker();
-$('#enddate').datepicker().on('changeDate',
-      function(ev) {$('#enddate').datepicker('hide')});
+  var today = new Date();
+  var _7daysago = new Date();
+  _7daysago.setDate(today.getDate() - 7);
+  $('#startdate').datepicker();
+  $('#startdate').datepicker('setValue', _7daysago);
+  $('#startdate').datepicker().on('changeDate',
+        function(ev) {$('#startdate').datepicker('hide')});
 
-function refreshChart() {
+  $('#enddate').datepicker();
+  $('#enddate').datepicker('setValue', today);
+  $('#enddate').datepicker().on('changeDate',
+        function(ev) {$('#enddate').datepicker('hide')});
+}
+
+
+function initCharts() {
+  setDates();
+  refreshCharts();
+};
+
+function refreshCharts() {
   temp.draw(); 
   hum.draw();
   press.draw();
 }
+
+initCharts();
