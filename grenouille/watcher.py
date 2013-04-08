@@ -1,12 +1,15 @@
-from yocto.api import YAPI
 from datetime import datetime
+import argparse
+import sys
+
+from yoctopuce.yocto_api import YAPI
 
 from grenouille.station import Station
 from grenouille.database import WeatherDatabase
+from grenouille import logger, __version__
 
 
 def watch_station(delay=3600, verbose=True, loop=False):
-
     delay = delay * 1000
     station = Station()
     db = WeatherDatabase()
@@ -29,5 +32,36 @@ def watch_station(delay=3600, verbose=True, loop=False):
         YAPI.Sleep(delay)
 
 
+def main():
+    parser = argparse.ArgumentParser(description='Grenouille watcher.')
+
+    parser.add_argument('--version', action='store_true', default=False,
+                        help='Displays version and exits.')
+
+    parser.add_argument('-d', '--delay',
+                        help='Delay in seconds between two calls.',
+                        type=int, default=3600.)
+
+    parser.add_argument('-v', '--verbose', action='store_true',
+                        help='Verbose', default=False)
+
+    parser.add_argument('-l', '--loop', action='store_true',
+                        help='Loop forever', default=False)
+
+    args = parser.parse_args()
+
+    if args.version:
+        yocto = YAPI.GetAPIVersion()
+        print('Grenouille v%s - Yoctopuce v%s' % (__version__, yocto))
+        sys.exit(0)
+
+    try:
+        watch_station(loop=args.loop, delay=args.delay, verbose=args.verbose)
+    except KeyboardInterrupt:
+        pass
+
+    logger.info('Bye!')
+
+
 if __name__ == '__main__':
-    watch_station(loop=True, delay=3600./4.)
+    main()
