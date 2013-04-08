@@ -1,9 +1,9 @@
 # -* encoding: utf8 -*-
 #
-from yocto.api import YAPI, YModule, YRefParam
-from yocto.humidity import YHumidity
-from yocto.temperature import YTemperature
-from yocto.pressure import YPressure
+from yoctopuce.yocto_api import YAPI, YModule, YRefParam
+from yoctopuce.yocto_humidity import YHumidity
+from yoctopuce.yocto_temperature import YTemperature
+from yoctopuce.yocto_pressure import YPressure
 
 TURCEY = 374.
 

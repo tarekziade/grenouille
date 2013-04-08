@@ -11,6 +11,7 @@ setup(name='grenouille',
       author="Tarek Ziadé",
       author_email="tarek@ziade.org",
       include_package_data=True,
-      install_requires=['yocto', 'pyelasticsearch'],
+      install_requires=['yoctopuce', 'pyelasticsearch',
+                        'BeautifulSoup', 'requests'],
       zip_safe=False
       )
