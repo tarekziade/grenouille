@@ -1,40 +1,40 @@
 
+/*
+     defining three Charts.  
+*/ 
 
-var temp = new GrenouilleAggregate("temp",
+var temp = new ElasticChart("temp",
                         "http://0.0.0.0:9901/weather/_search",
-                        "#startdate",
-                        "#enddate",
+                        "startdate",
+                        "enddate",
                         "chart-temp",
-                        "Temperature",
                         "temperature",
                         "hour");
 
 
-var hum = new GrenouilleAggregate("hum",
+var hum = new ElasticChart("hum",
                         "http://0.0.0.0:9901/weather/_search",
-                        "#startdate",
-                        "#enddate",
+                        "startdate",
+                        "enddate",
                         "chart-hum",
-                        "Humidity",
                         "humidity",
                         "hour");
 
 
-var press = new GrenouilleAggregate("press",
+var press = new ElasticChart("press",
                         "http://0.0.0.0:9901/weather/_search",
-                        "#startdate",
-                        "#enddate",
+                        "startdate",
+                        "enddate",
                         "chart-press",
-                        "Pressure",
                         "pressure",
                         "hour");
 
 
 function setDates() {
-
   var today = new Date();
   var _7daysago = new Date();
   _7daysago.setDate(today.getDate() - 7);
+
   $('#startdate').datepicker();
   $('#startdate').datepicker('setValue', _7daysago);
   $('#startdate').datepicker().on('changeDate',
