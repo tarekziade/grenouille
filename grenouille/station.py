@@ -10,7 +10,8 @@ TURCEY = 374.
 
 def convert_pressure(value, altitude=TURCEY):
     # XXX we should find out the altitude, given the box IP
-    return value + value / 8.3 * 100. / 100.
+    diff = 1013.25 * (1 - (((288.15 - 0.0065 * altitude) / 288.15) ** 5.255))
+    return value + diff
 
 
 class Station(object):
