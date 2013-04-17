@@ -32,7 +32,7 @@ function sortbyx(a, b){
 
 
 $.Class.extend("ElasticChart", {}, {
-  init: function(id, server, start_date, end_date, container, field, interval) {
+  init: function(id, server, start_date, end_date, container, field, interval, min, max) {
     this.start_date = '#' + start_date;
     this.end_date = '#' + end_date;
     this._init_datepicker(start_date);
@@ -47,6 +47,8 @@ $.Class.extend("ElasticChart", {}, {
     this.interval = interval;
     this.field = field;
     this.series = [{color: colors[0], name: field, data: [{x: 0, y: 0 }]}];
+    this.min = min;
+    this.max = max;
     this.chart = this._getChart();
   },
 
@@ -125,7 +127,7 @@ $.Class.extend("ElasticChart", {}, {
       var name;
       var data = [];
       var series = chart.series;
-
+       
      // XXX display the day, week or month in the label...
       $.each(json.facets.facet_histo.entries, function(i, item) {
         //var epoch = item.time;
@@ -139,18 +141,28 @@ $.Class.extend("ElasticChart", {}, {
       });
 
       data.sort(sortbyx);
-      console.log(data);
       series[0].data = data;
       chart.render();
     },
 
   _getChart: function () {
     // building the graph instance
-    var chart = new Rickshaw.Graph ({
-      element: document.getElementById(this.container),
-      renderer: this.type,
-      series: this.series,
-      height: 200});
+    if (this.min) {
+      var chart = new Rickshaw.Graph ({
+        element: document.getElementById(this.container),
+        renderer: this.type,
+        series: this.series,
+        height: 200,
+        min: this.min,
+        max: this.max});
+    }
+    else {
+      var chart = new Rickshaw.Graph ({
+        element: document.getElementById(this.container),
+        renderer: this.type,
+        series: this.series,
+        height: 200});
+    }
 
     var axes = new Rickshaw.Graph.Axis.Time( {
       graph:chart

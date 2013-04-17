@@ -27,7 +27,9 @@ var press = new ElasticChart("press",
                         "enddate",
                         "chart-press",
                         "pressure",
-                        "hour");
+                        "hour",
+                        870,
+                        1090);
 
 
 function setDates() {
